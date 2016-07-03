@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rebscher.gf4_maven1.boundary;
+package org.rebscher.appservertest.boundary;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,7 +16,7 @@ import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import org.rebscher.gf4_maven1.entity.SmallPayload;
+import org.rebscher.appservertest.entity.SmallPayload;
 
 /**
  *
@@ -31,9 +31,9 @@ public class SmallPayloadService {
     @Inject
     Logger tracer;
     
-    public static final String PAYLOAD_ID = "payload_id";
-    public static final String PAYLOAD = "smallpayload";
-    public static final String PAYLOAD2 = "smallpayload2";
+    public static final String PAYLOAD_ID = "id";
+    public static final String PAYLOAD = "payload";
+    public static final String PAYLOAD2 = "payload2";
     
 
     public SmallPayload find(long smallPayloadId) {
@@ -42,9 +42,13 @@ public class SmallPayloadService {
 
     public JsonObject store(SmallPayload request) {
         tracer.info("smallpayload arrived: " + request);
+        /*SmallPayload smallpayload = em.merge(request);
+        tracer.info("smallpayload stored: " + request);
+        return convert(smallpayload); */
+        // Deliberately making the code slower by retrieving the stored item from the DB.
         SmallPayload smallpayload = em.merge(request);
         tracer.info("smallpayload stored: " + request);
-        return convert(smallpayload);
+        return convert(find(smallpayload.getId()));
     }
 
     public JsonObject findAsJson(int smallPayloadId) {
@@ -85,5 +89,4 @@ public class SmallPayloadService {
                 .add(PAYLOAD2, smallpayload.getPayload2())
                 .build();
     }
-    
 }

@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.rebscher</groupId>
-    <artifactId>AppServerTest</artifactId>
+    <artifactId>appservertest</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>AppServerTest</name>
+    <name>appservertest</name>
 
     <!--<properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -81,7 +81,7 @@
     </dependencies>
 
     <build>
-        <finalName>gf4_maven1</finalName>
+        <finalName>appservertest</finalName>
     </build>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

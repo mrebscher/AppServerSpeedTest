@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rebscher.gf4_maven1.boundary;
+package org.rebscher.appservertest.boundary;
 
 import java.net.URI;
 import javax.ejb.Stateless;
@@ -20,7 +20,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import org.rebscher.gf4_maven1.entity.SmallPayload;
+import org.rebscher.appservertest.entity.SmallPayload;
 
 /**
  *

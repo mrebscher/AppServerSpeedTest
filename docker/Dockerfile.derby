@@ -1,0 +1,4 @@
+FROM mrebscher/payara-derby
+MAINTAINER mrebscher
+# For more information about the Applicationserver Speedtest see: https://github.com/mrebscher/AppServerSpeedTest
+ADD appservertest.war ${DEPLOYMENT_DIR}

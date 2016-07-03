@@ -1,6 +1,6 @@
 /*
  */
-package org.rebscher.gf4_maven1;
+package org.rebscher.appservertest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

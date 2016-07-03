@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rebscher.gf4_maven1.tracing.boundary;
+package org.rebscher.appservertest.tracing.boundary;
 
 import java.util.logging.Logger;
 import javax.enterprise.inject.Produces;

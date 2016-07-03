@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rebscher.gf4_maven1.entity;
+package org.rebscher.appservertest.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ public class SmallPayload {
     @GeneratedValue
     private long id;
     
-    private static final String PREFIX = "org.rebscher.gf4_maven1.entity.SmallPayload";
+    private static final String PREFIX = "org.rebscher.appservertest.entity.SmallPayload";
     public static final String findAll = PREFIX + "all";
 
     @Column(name="PAYLOAD")
@@ -42,6 +42,8 @@ public class SmallPayload {
 
     public SmallPayload(long id) {
         this.id = id;
+        this.payload = "dummy Payload";
+        this.payload = "dummy Payload 2";
     }
 
     public SmallPayload() {
