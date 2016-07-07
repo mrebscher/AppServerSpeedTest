@@ -24,7 +24,7 @@ import org.rebscher.appservertest.entity.SmallPayload;
 
 /**
  *
- * @author patrick
+ * @author mrebscher
  */
 @Stateless
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -36,7 +36,7 @@ public class SmallPayloadResource {
     SmallPayloadService smallpayloadservice;
 
     @POST
-    public Response register(SmallPayload request, @Context UriInfo info) {
+    public Response store(SmallPayload request, @Context UriInfo info) {
         JsonObject smallpayload = smallpayloadservice.store(request);
         long id = smallpayload.getInt(SmallPayloadService.PAYLOAD_ID);
         URI uri = info.getAbsolutePathBuilder().path("/" + id).build();
@@ -50,7 +50,7 @@ public class SmallPayloadResource {
     }
 
     @GET
-    public Response all() {
+    public Response getFiveHundred() {
         JsonArray registrationList = this.smallpayloadservice.allAsJson();
         if (registrationList == null || registrationList.isEmpty()) {
             return Response.noContent().build();
@@ -60,7 +60,10 @@ public class SmallPayloadResource {
 
     @GET
     @Path("{id}/dummy")
-    public SmallPayload dummy(@PathParam("id") int payloadId) {
-        return new SmallPayload(payloadId);
+    public Response dummy(@PathParam("id") int payloadId, @Context UriInfo info) {
+        JsonObject smallpayload = smallpayloadservice.store(new SmallPayload(payloadId));
+        long id = smallpayload.getInt(SmallPayloadService.PAYLOAD_ID);
+        URI uri = info.getAbsolutePathBuilder().path("/" + id).build();
+        return Response.created(uri).entity(smallpayload).build();
     }
 }

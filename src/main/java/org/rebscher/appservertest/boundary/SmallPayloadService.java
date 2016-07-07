@@ -20,7 +20,7 @@ import org.rebscher.appservertest.entity.SmallPayload;
 
 /**
  *
- * @author patrick
+ * @author mrebscher
  */
 @Stateless
 public class SmallPayloadService {
@@ -55,9 +55,10 @@ public class SmallPayloadService {
         return convert(find(smallPayloadId));
     }
 
-    public List<SmallPayload> all() {
-        return this.em.createNamedQuery(SmallPayload.findAll).
-                getResultList();
+    public List<SmallPayload> getFiveHundred() {
+        return this.em.createNamedQuery(SmallPayload.findAll)
+                .setMaxResults(500)
+                .getResultList();
     }
 
     public JsonArray allAsJson() {
@@ -67,7 +68,7 @@ public class SmallPayloadService {
                             left.add(right);
                             return left;
                         });
-        return all().stream().map(this::convert).
+        return getFiveHundred().stream().map(this::convert).
                 collect(jsonCollector).build();
 
     }

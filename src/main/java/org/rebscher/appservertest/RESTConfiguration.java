@@ -7,7 +7,7 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author adam-bien.com
+ * @author mrebscher
  */
 @ApplicationPath("resources")
 public class RESTConfiguration extends Application {

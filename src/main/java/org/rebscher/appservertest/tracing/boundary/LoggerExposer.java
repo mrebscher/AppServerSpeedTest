@@ -11,7 +11,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 
 /**
  *
- * @author patrick
+ * @author mrebscher
  */
 public class LoggerExposer {
     @Produces
